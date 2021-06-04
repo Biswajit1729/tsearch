@@ -50,7 +50,7 @@ let magnetSearch = async function(q,i) {
         return error;
     }
 }
-    
+   //magnet 
 app.get('/magnetLink/:i', async function(req, res){
     var i =req.params.i
     var q = req.query.q;
