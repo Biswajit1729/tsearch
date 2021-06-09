@@ -12,7 +12,7 @@ TorrentSearchApi.enableProvider('Rarbg');
 TorrentSearchApi.enableProvider('TorrentProject');
 TorrentSearchApi.enableProvider('Yts');
 TorrentSearchApi.enableProvider('Limetorrents');
-TorrentSearchApi.enableProvider('Eztv');
+//TorrentSearchApi.enableProvider('Eztv');
 
 
 let torrsearch = async function(q,l) {
