@@ -29,7 +29,9 @@ try {
 
 }
 app.get('/:l', async function(req, res){
-    
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,   Accept, x-client-key, x-client-token, x-client-secret, Authorization");
 
     var q = req.query.q;
     var l =req.params.l
@@ -52,6 +54,10 @@ let magnetSearch = async function(q,i) {
 }
    //magnet 
 app.get('/magnetLink/:i', async function(req, res){
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,   Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+
     var i =req.params.i
     var q = req.query.q;
     var m = await magnetSearch(q,i); 
