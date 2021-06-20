@@ -1,6 +1,5 @@
 const TorrentSearchApi = require('torrent-search-api');
 const express = require('express');
-const { query } = require('express');
 const app = express();
 const port = 3000;
 
@@ -20,11 +19,7 @@ let torrsearch = async function(q,l) {
 
 // Search '1080' in 'Movies' category and limit to 20 results
 try {
-    const torrents = await TorrentSearchApi.search(
-        ['1337x', 'Torrent9','Yts','ThePirateBay','Torrentz2',
-        'KickassTorrents','Rarbg','Limetorrents','TorrentProject'],
-        q, 'All', l);
-       
+    const torrents = await TorrentSearchApi.search(q, "All", l);
     return torrents;
 } catch (error) {
     return error;
@@ -50,10 +45,7 @@ app.get('/:l', async function(req, res){
 let magnetSearch = async function(q,i) {
     // Search '1080' in 'Movies' category and limit to 20 results
     try {
-        const torrents = await TorrentSearchApi.search(
-            ['1337x', 'Torrent9','Yts','ThePirateBay','Torrentz2',
-            'KickassTorrents','Rarbg','Limetorrents','TorrentProject'],
-            q, 'All', l);
+        const torrents = await TorrentSearchApi.search(q, "All", i);
         const m = await TorrentSearchApi.getMagnet(torrents[i-1]);
         return m;
     } catch (error) {
