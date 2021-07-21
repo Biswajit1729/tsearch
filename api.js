@@ -3,15 +3,15 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-TorrentSearchApi.enableProvider('1337x');
+//TorrentSearchApi.enableProvider('1337x');
 TorrentSearchApi.enableProvider('ThePirateBay');
-TorrentSearchApi.enableProvider('Torrent9');
-TorrentSearchApi.enableProvider('Torrentz2');
-TorrentSearchApi.enableProvider('KickassTorrents');
-TorrentSearchApi.enableProvider('Rarbg');
-TorrentSearchApi.enableProvider('TorrentProject');
-TorrentSearchApi.enableProvider('Yts');
-TorrentSearchApi.enableProvider('Limetorrents');
+// TorrentSearchApi.enableProvider('Torrent9');
+// TorrentSearchApi.enableProvider('Torrentz2');
+// TorrentSearchApi.enableProvider('KickassTorrents');
+// TorrentSearchApi.enableProvider('Rarbg');
+// TorrentSearchApi.enableProvider('TorrentProject');
+// TorrentSearchApi.enableProvider('Yts');
+// TorrentSearchApi.enableProvider('Limetorrents');
 //TorrentSearchApi.enableProvider('Eztv');
 
 
@@ -35,7 +35,7 @@ app.get('/:l', async function(req, res){
 
     var q = req.query.q;
     var l =req.params.l
-    var value = await torrsearch(q,l); 
+    var value = await torrsearch(q,l).catch(error => {throw error}); 
     
     res.send(value);
     
@@ -45,8 +45,8 @@ app.get('/:l', async function(req, res){
 let magnetSearch = async function(q,i) {
     // Search '1080' in 'Movies' category and limit to 20 results
     try {
-        const torrents = await TorrentSearchApi.search(q, "All", i);
-        const m = await TorrentSearchApi.getMagnet(torrents[i-1]);
+        const torrents = await TorrentSearchApi.search(q, "All", i).catch(error => {throw error}); 
+        const m = await TorrentSearchApi.getMagnet(torrents[i-1]).catch(error => {throw error}); 
         return m;
     } catch (error) {
         return error;
@@ -60,7 +60,7 @@ app.get('/magnetLink/:i', async function(req, res){
 
     var i =req.params.i
     var q = req.query.q;
-    var m = await magnetSearch(q,i); 
+    var m = await magnetSearch(q,i).catch(error => {throw error}); 
     
     res.send(m);
     
