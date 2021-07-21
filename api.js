@@ -3,14 +3,14 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-//TorrentSearchApi.enableProvider('1337x');
+TorrentSearchApi.enableProvider('1337x');
 TorrentSearchApi.enableProvider('ThePirateBay');
 // TorrentSearchApi.enableProvider('Torrent9');
 // TorrentSearchApi.enableProvider('Torrentz2');
 // TorrentSearchApi.enableProvider('KickassTorrents');
 // TorrentSearchApi.enableProvider('Rarbg');
 // TorrentSearchApi.enableProvider('TorrentProject');
-// TorrentSearchApi.enableProvider('Yts');
+ TorrentSearchApi.enableProvider('Yts');
 // TorrentSearchApi.enableProvider('Limetorrents');
 //TorrentSearchApi.enableProvider('Eztv');
 
