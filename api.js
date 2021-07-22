@@ -33,7 +33,11 @@ app.get('/:l', async function(req, res){
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,   Accept, x-client-key, x-client-token, x-client-secret, Authorization");
 
-    var p = JSON.parse(req.query.array);
+    const urlp = req.query.p;
+    const names = decodeURIComponent(urlp.slice(1,urlp.length-1));
+    const p = names.split(',');
+    console.log(p);
+    //var p = JSON.parse(req.query.array);
     var q = req.query.q;
     var l =req.params.l
     
