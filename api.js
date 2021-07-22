@@ -34,10 +34,10 @@ app.get('/:l', async function(req, res){
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,   Accept, x-client-key, x-client-token, x-client-secret, Authorization");
 
     const urlp = req.query.p.replace(" ", "");
-    console.log(urlp);
+   // console.log(urlp);
     const names = decodeURIComponent(urlp.slice(1,urlp.length-1));
     const p = names.split(',');
-    console.log(p);
+    //console.log(p);
     //var p = JSON.parse(req.query.array);
     var q = req.query.q;
     var l =req.params.l
