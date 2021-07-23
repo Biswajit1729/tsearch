@@ -28,6 +28,17 @@ try {
 
 
 }
+
+app.get('/providers', function(req, res){
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,   Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+    
+        
+    return res.send(["Yts","ThePirateBay","TorrentProject","Limetorrents","Eztv","1337x"]);
+})
+
+
 app.get('/:l', async function(req, res){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
@@ -72,6 +83,16 @@ app.get('/magnetLink/:i', async function(req, res){
     res.send(m);
     
 });
+
+
+
+
+
+
+
+
+
+
 app.listen(process.env.PORT ||  port, () => {
     console.log(`Example app listening on port ${port}!`)
 });
