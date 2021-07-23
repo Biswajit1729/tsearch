@@ -35,7 +35,7 @@ app.get('/providers', function(req, res){
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,   Accept, x-client-key, x-client-token, x-client-secret, Authorization");
     
         
-    return res.send(["Yts","ThePirateBay","TorrentProject","Limetorrents","Eztv","1337x"]);
+    return res.send(TorrentSearchApi.getActiveProviders());
 })
 
 
