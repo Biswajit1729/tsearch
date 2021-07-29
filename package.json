@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    
-    "start": "node api.js"
+    "start": "nodemon api.js"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +12,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "torrent-search-api": "^2.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }
