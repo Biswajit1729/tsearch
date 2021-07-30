@@ -56,11 +56,8 @@ app.get('/magnetLink', async function(req, res){
         console.log("Did not find any matching URLs")
         return;
      }else{
-       
-       const p = JSON.parse(
-        JSON.stringify(req.query.p)); 
-       
-       var m = await magnetSearch(p) 
+        var p = req.query.p;   
+        var m = await magnetSearch(JSON.parse(p)) 
 
      }
     //console.log(m);
